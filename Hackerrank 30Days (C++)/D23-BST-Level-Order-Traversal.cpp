@@ -45,8 +45,22 @@ public:
     void levelOrder(Node *root)
     {
         //Write your code here
-        if (root != NULL)
-            cout << root->data << " ";
+        queue<Node *> q;
+        q.push(root);
+        while (q.size() != 0)
+        {
+            Node *el = q.front();
+            q.pop();
+            cout << el->data << " ";
+            if (el->left != NULL)
+            {
+                q.push(el->left);
+            }
+            if (el->right != NULL)
+            {
+                q.push(el->right);
+            }
+        }
     }
 
 }; //End of Solution
